@@ -70,6 +70,7 @@ def update_data(unique_id, data):
 def send_email(to_email, link):
     from_email = 'shsmodernhill@shb.sch.id'
     from_password = 'jvvmdgxgdyqflcrf' 
+    
     subject = "Complete the Form"
     body = f"Please complete the form by clicking the following link: {link}"
     
@@ -97,9 +98,9 @@ def home():
     st.title("User Signature and Data Form")
 
     # Check if this is the second part of the form based on URL parameters
-    query_params = st.query_params
+    query_params = st.experimental_get_query_params()
     if "id" in query_params:
-        unique_id = query_params["id"]
+        unique_id = query_params["id"][0]
         if get_data(unique_id):
             second_user_form(unique_id)
         else:
