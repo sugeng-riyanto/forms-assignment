@@ -25,7 +25,7 @@ def init_db():
 
 def generate_unique_link():
     unique_id = str(uuid.uuid4())
-    return f"http://localhost:8501/?id={unique_id}", unique_id
+    return f"https://signatureform.streamlit.app/?id={unique_id}", unique_id
 
 def save_data(unique_id, data):
     conn = sqlite3.connect('form_data.db')
